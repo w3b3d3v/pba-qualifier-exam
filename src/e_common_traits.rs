@@ -22,7 +22,7 @@ pub struct Employee {
 
 impl PartialEq for Employee {
 	fn eq(&self, other: &Self) -> bool {
-		todo!("complete the implementation");
+		self.uid == other.uid
 	}
 }
 impl Eq for Employee {}
@@ -34,13 +34,18 @@ impl Eq for Employee {}
 
 impl PartialOrd for Employee {
 	fn partial_cmp(&self, other: &Self) -> Option<std::cmp::Ordering> {
-		todo!("complete the implementation");
+		if self.eq(other) {
+			return Some(std::cmp::Ordering::Equal);
+		}
+		let self_value = self.experience / self.wage;
+		let other_value = other.experience / other.wage;
+		self_value.partial_cmp(&other_value)
 	}
 }
 
 impl Ord for Employee {
 	fn cmp(&self, other: &Self) -> std::cmp::Ordering {
-		todo!("complete the implementation");
+		self.partial_cmp(other).unwrap()
 	}
 }
 
@@ -59,14 +64,34 @@ impl TryFrom<String> for Employee {
 	type Error = &'static str;
 
 	fn try_from(value: String) -> Result<Self, Self::Error> {
-		todo!("complete the implementation");
+		let values: Vec<_> = value.split(", ").collect();
+		if values.len() != 4 {
+			return Err("wrong number of commas");
+		}else {
+			let name = values[0];
+			let experience = values[1].parse::<u32>();
+			let wage = values[2].parse::<u32>();
+			let uid = values[3].parse::<u32>();
+			if experience.is_err() || wage.is_err() || uid.is_err() {
+				return Err("numbers too big for u32");
+			}
+			let experience = experience.unwrap();
+			let wage = wage.unwrap();
+			let uid = uid.unwrap();
+			return Ok(Employee {
+				name: String::from(name),
+				experience,
+				wage,
+				uid,
+			});
+		}
 	}
 }
 
 // We also want to convert employees back into strings in the same format as above.
 impl From<Employee> for String {
 	fn from(e: Employee) -> Self {
-		todo!("complete the implementation");
+		format!("{}, {}, {}, {}", e.name, e.experience, e.wage, e.uid)
 	}
 }
 
