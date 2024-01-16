@@ -39,7 +39,7 @@
 /// - d) i32
 /// - e) int
 pub fn answer_1_a() -> char {
-	todo!()
+	'd'
 }
 
 /// ### Question 1_B
@@ -52,7 +52,7 @@ pub fn answer_1_a() -> char {
 /// - d) Because the original `y` value was moved into z` on line 3.
 /// - e) Because it is being borrowed.
 pub fn answer_1_b() -> char {
-	todo!()
+	'b'
 }
 
 /// ### Question 1_C
@@ -65,7 +65,7 @@ pub fn answer_1_b() -> char {
 /// - d) 0
 /// - e) 511
 pub fn answer_1_c() -> char {
-	todo!()
+	'b'
 }
 
 /// ### Question 1_D
@@ -78,7 +78,7 @@ pub fn answer_1_c() -> char {
 /// - d) `loop {}`
 /// - e) `for _ in vec![1, 2, 3] {}`
 pub fn answer_1_d() -> char {
-	todo!()
+	'a'
 }
 
 /// ## Question 2

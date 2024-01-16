@@ -12,14 +12,14 @@
 /// Academy staff if something is unclear or you are completely stuck.
 pub fn exam_done_independently() -> bool {
 	// If you have followed this rule, return `true`
-	todo!()
+	true
 }
 
 /// The multiple choice portion of the exam must be completed without accessing the internet,
 /// books, or any other resources.
 pub fn multiple_choice_closed_book() -> bool {
 	// If you have followed this rule, return `true`
-	todo!()
+	true
 }
 
 /// The multiple choice portion of this exam has several questions asking for the output of a
